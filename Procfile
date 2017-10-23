@@ -1,1 +1,1 @@
-web: polymer serve build/unbundled
+web: node index.js
