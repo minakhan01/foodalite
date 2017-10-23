@@ -1,1 +1,1 @@
-web: polymer serve
+web: polymer serve build/unbundled
