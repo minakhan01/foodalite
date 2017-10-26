@@ -1,9 +1,10 @@
 {
-  "name": "foodalite",
-  "description": "An application that helps you visualize your daily diet as daydreamed images created out of food colors",
+  "name": "Foodalite",
+  "description": "Food app",
   "main": "index.html",
   "dependencies": {
-    "polymer": "Polymer/polymer#^2.0.0"
+    "polymer": "Polymer/polymer#^2.0.0",
+    "app-media": "PolymerElements/app-media#^0.8.1"
   },
   "devDependencies": {
     "web-component-tester": "Polymer/web-component-tester#^6.0.0",

@@ -4,18 +4,19 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
 
-    <title>foodalite</title>
-    <meta name="description" content="An application that helps you visualize your daily diet as daydreamed images created out of food colors">
+    <title>Foodalite</title>
+    <meta name="description" content="Food app">
 
     <!-- See https://goo.gl/OOhYW5 -->
     <link rel="manifest" href="/manifest.json">
 
-    <script src="/bower_components/webcomponentsjs/webcomponents-lite.js"></script>
     <script src="/bower_components/webcomponentsjs/webcomponents-loader.js"></script>
 
-    <link rel="import" href="/src/foodalite-app/foodalite-app.html">
+    <link rel="import" href="/src/camera-element/camera-element.html">
   </head>
   <body>
-    <foodalite-app></foodalite-app>
+    <camera-element></camera-element>
+    <img id="image" src="" alt="">
+    
   </body>
 </html>

@@ -1,0 +1,88 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../bower_components/app-media/app-media.html">
+
+
+<dom-module id="camera-element">
+  <template>
+    <style>
+       :host {
+        display: block;
+      }
+    </style>
+    <h2>Hello Jud!</h2>
+    <!-- The computer is connected to devices... -->
+    <app-media-devices kind="videoinput" selected-device="{{videoDevice}}">
+    </app-media-devices>
+
+    <!-- ...devices are connected to the media stream.... -->
+    <app-media-stream video-device="[[videoDevice]]" stream="{{stream}}" active>
+    </app-media-stream>
+
+    <!-- ...media stream is connected to the video output... -->
+    <app-media-video id="video" source="[[stream]]" on-click="snapshot" autoplay muted contain>
+    </app-media-video>
+
+    <app-media-image-capture id="camera" stream="[[stream]]" imageHeight=345 imageWidth=345></app-media-image-capture>
+  </template>
+
+  <script>
+    (function () {
+      window.ensureMediaDevices = new Promise(function (resolve) {
+        if (navigator.mediaDevices == null) {
+          var script = document.createElement('script');
+          script.src = '../../webrtc-adapter/release/adapter.js';
+          script.onload = resolve;
+          document.body.appendChild(script);
+        } else {
+          resolve();
+        }
+      });
+    })();
+
+    var readyToDefine = Promise.all([
+      ensureMediaDevices,
+      new Promise(function (resolve) {
+        document.addEventListener('WebComponentsReady', resolve);
+      })
+    ]);
+
+    /**
+     * @customElement
+     * @polymer
+     */
+    class CameraElement extends Polymer.Element {
+      static get is() {
+        return 'camera-element';
+      }
+      static get properties() {
+        return {
+          imageWidth: {
+            type: Number,
+            value: 720
+          },
+
+          imageHeight: {
+            type: Number,
+            value: this.imageWidth
+          }
+
+        };
+      }
+
+      snapshot() {
+        console.log("photo");
+        var takenPhotoPromise = this.$.camera.takePhoto();
+
+        takenPhotoPromise.then(function (blob) {
+          var urlCreator = window.URL || window.webkitURL;
+          var imageUrl = urlCreator.createObjectURL(blob);
+
+          document.querySelector("#image").src = imageUrl;
+        })
+
+      }
+    }
+
+    window.customElements.define(CameraElement.is, CameraElement);
+  </script>
+</dom-module>

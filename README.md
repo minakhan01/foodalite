@@ -1,6 +1,6 @@
 # \<Foodalite\>
 
-An application that helps you visualize your daily diet as daydreamed images created out of food colors
+Food app
 
 ## Install the Polymer-CLI
 

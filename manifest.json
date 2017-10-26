@@ -1,7 +1,7 @@
 {
-  "name": "foodalite",
-  "short_name": "foodalite",
-  "description": "An application that helps you visualize your daily diet as daydreamed images created out of food colors",
+  "name": "Foodalite",
+  "short_name": "Foodalite",
+  "description": "Food app",
   "start_url": "/",
   "display": "standalone"
 }
