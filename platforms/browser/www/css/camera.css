@@ -1,0 +1,10 @@
+
+#photo {
+    background: black;
+    position: relative;
+}
+
+.controls {
+    position: relative;
+    margin-top: 20%;
+}

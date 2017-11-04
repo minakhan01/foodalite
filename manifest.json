@@ -1,7 +1,0 @@
-{
-  "name": "Foodalite",
-  "short_name": "Foodalite",
-  "description": "Food app",
-  "start_url": "/",
-  "display": "standalone"
-}
